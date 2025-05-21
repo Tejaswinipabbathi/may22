@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pick a Space 🌸</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff0f7;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      font-size: 2rem;
+      padding: 30px;
+      color: #d670a1;
+      text-align: center;
+    }
+
+    .card-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1000px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(255, 192, 203, 0.2);
+      width: 250px;
+      text-align: center;
+      padding: 25px;
+      text-decoration: none;
+      color: #333;
+      transition: transform 0.3s;
+      border: 2px dashed #ffcce6;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .emoji {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin: 0;
+      color: #c94f7c;
+    }
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(255,255,255,0.1);
+      color: #d4327e;
+      padding: 10px 15px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+  </style>
+</head>
+<body>
+  <header>Choose Your Space 🧸🎧ྀི</header>
+
+  <div class="card-container">
+    <a class="card" href="main.html">
+      <div class="emoji">🍀</div>
+      <h2>The Inner Realm</h2>
+    </a>
+
+    <a class="card" href="enchanting.html">
+      <div class="emoji">🥀</div>
+      <h2>Letters never sent</h2>
+    </a>
+
+    <a class="card" href="chill.html">
+      <div class="emoji">🎧</div>
+      <h2>Our hideout</h2>
+    </a>
+  </div>
+  <a class="back-btn" href="index.html">← Back</a>
+</body>
+</html>
