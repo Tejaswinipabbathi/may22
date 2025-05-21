@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chill with Me</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(10, 10, 10, 0.3);
+      z-index: -1;
+    }
+
+    .subtitles {
+      position: absolute;
+      bottom: 10%;
+      width: 100%;
+      text-align: center;
+      font-size: 2rem;
+      color: #fff;
+      text-shadow: 2px 2px 8px #000;
+      opacity: 0;
+      animation: fadeInOut 9s ease-in-out forwards;
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      40% { opacity: 1; }
+      60% { opacity: 0; }
+    }
+
+    .sub-2 {
+      animation-delay: 9s;
+    }
+
+    .sub-3 {
+      animation-delay: 18s;
+    }
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Video -->
+  <video class="video-bg" autoplay muted loop>
+    <source src="assets/rainyroom.mp4" type="video/mp4" />
+  </video>
+  <a class="back-btn" href="main.html">← Back</a>
+
+  <div class="overlay"></div>
+
+  <!-- Subtitles -->
+  <div class="subtitles sub-1">Calm down baby...</div>
+  <div class="subtitles sub-2">Relax...</div>
+  <div class="subtitles sub-3">You are safe here...</div>
+  <div class="subtitles sub-3">It's ok sweetheart everything will be okay!</div>
+  <div class="subtitles sub-3">you are my cute little prince...</div>
+  <div class="subtitles sub-3">just take a break baby, close your eyes...</div>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" src="assets/rain.mp3" autoplay loop></audio>
+
+  <script>
+    // Allow autoplay when user interacts
+    window.addEventListener('click', () => {
+      const music = document.getElementById('bgMusic');
+      music.play().catch(() => {});
+    });
+
+    // Start music immediately on load if allowed
+    window.addEventListener('DOMContentLoaded', () => {
+      const music = document.getElementById('bgMusic');
+      music.play().catch(() => {});
+    });
+  </script>
+</body>
+</html>
