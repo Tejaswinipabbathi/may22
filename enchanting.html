@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Moment</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', cursive;
+      background: linear-gradient(180deg, #1e1448, #382765);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .avatar-container {
+      border: 5px solid #fff5c3;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(255, 230, 180, 0.7);
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 2s ease forwards;
+      opacity: 0;
+    }
+
+    .avatar-container img {
+      max-width: 45vw;
+      max-height: 39vh;
+      border-radius: 15px;
+    }
+
+    .caption {
+      margin-top: 20px;
+      font-size: 1.4em;
+      text-align: center;
+      font-style: italic;
+      max-width: 90vw;
+      animation: fadeInText 3s ease forwards;
+      opacity: 0;
+    }
+
+    .love{
+      margin-top: 10px;
+      animation: fadeInText 3s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(20px); }
+    }
+
+    @keyframes fadeInText {
+      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(10px); }
+    }
+
+    .sparkles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .sparkles::after {
+      content: '';
+      background-image: url('https://cdn.jsdelivr.net/gh/creotiv/particles/sparkle.gif');
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      opacity: 0.4;
+      animation: twinkle 5s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      0% {opacity: 0.3;}
+      100% {opacity: 0.6;}
+    }
+
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    /* Optional: hide scrollbar */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    /* Overlay */
+/* Overlay */
+#birthdayPopup .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 10, 20, 0.85);
+  z-index: 9998;
+}
+
+/* Popup */
+#birthdayPopup .popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  text-align: center;
+  max-width: 90%;
+}
+
+/* Glowing Frame */
+#birthdayPopup .glow-frame {
+  border: 3px solid #f0aaff;
+  padding: 30px 20px 20px;
+  border-radius: 15px;
+  background: rgba(20, 20, 40, 0.95);
+  box-shadow: 0 0 30px #ff99ff;
+  color: white;
+  font-family: 'Courier New', monospace;
+  font-size: 1.3rem;
+  white-space: pre-wrap;
+  position: relative;
+}
+
+/* Typing Effect */
+.typing {
+  overflow: hidden;
+  border-right: 3px solid #fff;
+  white-space: nowrap;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #fff; }
+}
+
+/* Close Button */
+.close-btn {
+  margin-top: 25px;
+  padding: 10px 20px;
+  background-color: #ff99ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px #ffccff;
+  transition: background 0.3s ease;
+}
+
+.close-btn:hover {
+  background-color: #ff66cc;
+}
+
+
+  </style>
+</head>
+<body>
+  <!-- Background music -->
+  <audio id="bdayMusic" src="your-music.mp3" loop></audio>
+  <a class="back-btn" href="main.html">← Back</a>
+  <div class="sparkles"></div>
+  <div class="avatar-container">
+    <img src="images/both.jpg" alt="Our Enchanted Memory">
+  </div>
+  <div class="caption">
+    “I always thought love is like a firecracker which make noise, which takes everyones attention by its sparkles and sound until i met you and realised Love is like a diya which is silent, calm and reserved yet it lightens the whole world with its magic. I never thought a 21 yr old boy would be my inspiration, the way you strive for yourself, for your parents and maybe me too makes me fall for you harder. I have learnt a lot of things from you, u are much more than you think u are. The moment i saw you for the first time i knew its going to last for a lifetime and here we are together for almost 2yr and still counting...Eventhough i may fight a lot, my heart yearns to have a single glance of you”
+  </div>
+  <div class="love">
+    I LOVE YOU
+  </div>
+
+  <!-- Birthday Popup Overlay -->
+<div id="birthdayPopup" style="display:none;">
+  <div class="overlay"></div>
+  <div class="popup">
+    <div class="glow-frame">
+      <p id="birthdayMessage" class="typing"></p>
+    </div>
+  </div>
+</div>
+
+<!-- Birthday Popup Overlay -->
+<div id="birthdayPopup" style="display:none;">
+  <div class="overlay"></div>
+  <div class="popup">
+    <div class="glow-frame">
+      <p id="birthdayMessage" class="typing"></p>
+      <button onclick="closeBirthdayPopup()" class="close-btn">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- BGM for birthday -->
+<audio id="bdayMusic" src="assets/bday.mp3" loop></audio>
+
+<script>
+  const birthday = new Date();
+  birthday.setMonth(4); // May (0-indexed)
+  birthday.setDate(22);
+
+  const today = new Date();
+
+  function showBirthdayPopup() {
+    document.getElementById("birthdayPopup").style.display = "block";
+    document.getElementById("bdayMusic").play();
+
+    const message = "Happy Birthday Mammupandu🩷\nLove you baby.\nGod bless you and pyscho dudu laga undaku.";
+    let i = 0;
+    const speed = 60;
+
+    function typeWriter() {
+      if (i < message.length) {
+        document.getElementById("birthdayMessage").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+    typeWriter();
+  }
+
+  function closeBirthdayPopup() {
+    document.getElementById("birthdayPopup").style.display = "none";
+    document.getElementById("bdayMusic").pause();
+  }
+
+  if (today.getMonth() === birthday.getMonth() && today.getDate() === birthday.getDate()) {
+    setTimeout(showBirthdayPopup, 3000);
+  }
+</script>
+
+</body>
+</html>
