@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Love App</title>
+  <script>
+    if (localStorage.getItem("authenticated") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ffe4ec">
+<link rel="icon" href="images/me.png" type="image.png">
+
+</head>
+<body>
+  <h1>Welcome to your love app 💖</h1>
+  <p>This is where all the magic happens ✨</p>
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(() => console.log('Service Worker registered'))
+      .catch(error => console.error('Service Worker registration failed:', error));
+  }
+</script>
+
+</body>
+</html>
