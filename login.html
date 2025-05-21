@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login – For My Love</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #ffe0f0, #e0c3fc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h2 {
+      color: #c94f7c;
+    }
+
+    input {
+      padding: 10px;
+      width: 100%;
+      margin: 15px 0;
+      border: 2px solid #ffd6e8;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #c94f7c;
+      color: white;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #a73e65;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <p>Enter your love spell🗝️</p>
+    <input type="password" id="password" placeholder="Password" autocomplete="off">
+    <div class="error" id="errorMsg"></div>
+    <button onclick="checkPassword()">Let's go</button>
+  </div>
+
+  <script>
+    document.getElementById("password").focus();
+
+    function checkPassword() {
+      const input = document.getElementById("password").value;
+      const correct = "tejaswinigoutham";
+
+      if (input === correct) {
+        window.location.href = "app.html"; // ✅ change this to app.html if needed
+      } else {
+        document.getElementById("errorMsg").textContent = "Oops! Wrong password baby 😔";
+      }
+    }
+    
+
+  </script>
+
+</body>
+</html>
