@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>personalised website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff0f5;
+      margin: 0;
+      padding: 0;
+      color: #444;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #ffe4ec;
+      font-size: 1.6rem;
+      border-bottom: 2px dashed #f8cddf;
+    }
+
+    nav {
+      text-align: center;
+      background: #ffecf2;
+      padding: 10px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #c94f7c;
+      font-weight: bold;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .card {
+      background: #fff;
+      border: 2px dashed #ffd6e8;
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(255, 192, 203, 0.2);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #c94f7c;
+    }
+
+    .chill-link {
+      display: inline-block;
+      background: #ffe0f0;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      text-decoration: none;
+      color: #333;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+
+    .chill-link:hover {
+      background: #ffcce6;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ffd6e8;
+      border-radius: 10px;
+      margin-top: 8px;
+      margin-bottom: 12px;
+    }
+
+    button {
+      background-color: #ffb6c1;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff8fab;
+    }
+    .magic-btn {
+  background: linear-gradient(90deg, #ffb0f9, #a477f5);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-size: 1em;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(255, 176, 249, 0.6);
+  transition: all 0.3s ease;
+}
+
+.magic-btn:hover {
+  background: linear-gradient(90deg, #a477f5, #ffb0f9);
+  transform: scale(1.05);
+}
+.back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(255,255,255,0.1);
+      color: #d4327e;
+      padding: 10px 15px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    #monthlySummary {
+  background: #fef6fb;
+  padding: 10px 15px;
+  border-radius: 15px;
+  margin-top: 15px;
+  font-size: 0.95rem;
+  color: #6b2e5c;
+  box-shadow: 0 0 10px rgba(255, 192, 203, 0.2);
+}
+.tracker-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.tracker-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+.tracker-row input[type="number"] {
+  flex: 1;
+  padding: 6px 10px;
+  border: 1px solid #ffd6e8;
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
+
+.tracker-row label {
+  font-weight: 500;
+  color: #5c3a51;
+}
+
+
+
+  </style>
+</head>
+<body>
+  <header>
+     A little love corner made for YOU🦢💕
+  </header>
+   <a class="back-btn" href="home.html">← Back</a>
+  <main>
+    <!-- Love Message -->
+    <section class="card">
+      <h2>💌 Daily Love Message</h2>
+     <p id="dailyLoveMessage"></p>
+
+    </section>
+
+   <!-- Monthly Health Tracker -->
+<section class="card">
+  <h2>🍃 Mystic Wellness Journal</h2>
+
+  <div class="tracker-row">
+    <input type="checkbox" id="waterCheckbox">
+    <label for="waterCheckbox">I drank enough water today 💧</label>
+  </div>
+
+  <div class="tracker-row">
+    <input type="checkbox" id="workoutCheckbox">
+    <label for="workoutCheckbox">I worked out today 🏋️‍♂️</label>
+  </div>
+
+  <div class="tracker-row">
+    <label for="sleepHours">Hours of Sleep 😴</label>
+    <input type="number" id="sleepHours" placeholder="e.g., 7">
+  </div>
+
+  <button onclick="saveHealthData()">Save Today's Health</button>
+
+  <div id="monthlySummary" style="margin-top: 15px;"></div>
+</section>
+
+
+    <!-- Mood Tracker -->
+    <section class="card">
+      <h2>❤️‍🩹 Mood Tracker</h2>
+      <label>How are you feeling?</label>
+      <select>
+        <option>😊 Happy</option>
+        <option>😐 Okay</option>
+        <option>😢 Sad</option>
+        <option>😠 Frustrated</option>
+        <option>🥰 Loved</option>
+      </select>
+    </section>
+
+    <!-- Write a Love Note -->
+    <section class="card">
+      <h2>🧸 Write a Love Note</h2>
+      <textarea id="loveNote" rows="5" placeholder="Write something sweet..."></textarea>
+      <button onclick="saveNote()">Save Note</button>
+      <p id="savedNote"></p>
+    </section>
+    
+    <!-- Chill Page Link -->
+    <section class="card center">
+      <a href="chill.html" class="chill-link"> Our little hideout🤍♡🎧</a>
+    </section>
+     
+
+  </main>
+  <audio id="typingSound" src="assets/typing.mp3" preload="auto"></audio>
+
+  <script>
+    // Save and show love note using localStorage
+    const saved = localStorage.getItem("loveNote");
+    if (saved) {
+      document.getElementById("savedNote").innerText = "💌 Last note: " + saved;
+    }
+
+    function saveNote() {
+      const note = document.getElementById("loveNote").value;
+      if (note) {
+        localStorage.setItem("loveNote", note);
+        document.getElementById("savedNote").innerText = "💌 Last note: " + note;
+      }
+    }
+    
+  const loveMessages = [
+    "You're my favorite person in the whole world 💖",
+    "Take a deep breath, you're doing amazing ✨",
+    "I love you more than words can say 🌸",
+    "Your smile is my sunshine ☀️",
+    "No matter what, I’m always with you 💕",
+    "Baby nuv chala better avtunav roj roj ki 💜🌙",
+    "Your parents and I are proud of you sweetheart 🫂",
+    "Sometimes you are too HOT to handle 💋",
+    "Chala baguntav ra nuv...chalaaaa ante chalaaaa 💗🤌🏻🤧"
+  ];
+
+  function getTodaysLoveMessage() {
+    const today = new Date().toISOString().slice(0, 10); // e.g., "2025-05-21"
+    let stored = JSON.parse(localStorage.getItem("dailyLove")) || {};
+
+    if (stored.date !== today) {
+      const index = Math.floor(Math.random() * loveMessages.length);
+      stored = {
+        date: today,
+        message: loveMessages[index]
+      };
+      localStorage.setItem("dailyLove", JSON.stringify(stored));
+    }
+
+    document.getElementById("dailyLoveMessage").textContent = stored.message;
+  }
+
+  getTodaysLoveMessage();
+  
+  // Load saved health data
+  window.addEventListener('DOMContentLoaded', () => {
+    const data = JSON.parse(localStorage.getItem("healthMoodData")) || {};
+
+    document.getElementById("waterCheckbox").checked = data.water || false;
+    document.getElementById("workoutCheckbox").checked = data.workout || false;
+    document.getElementById("hoursSlept").value = data.sleep || '';
+    document.getElementById("meals").value = data.meals || '';
+    document.getElementById("mood").value = data.mood || '';
+  });
+
+  function saveHealthMoodData() {
+    const data = {
+      water: document.getElementById("waterCheckbox").checked,
+      workout: document.getElementById("workoutCheckbox").checked,
+      sleep: document.getElementById("hoursSlept").value,
+      meals: document.getElementById("meals").value,
+      mood: document.getElementById("mood").value
+    };
+    localStorage.setItem("healthMoodData", JSON.stringify(data));
+  }
+
+  // Listen for changes
+  document.getElementById("waterCheckbox").addEventListener("change", saveHealthMoodData);
+  document.getElementById("workoutCheckbox").addEventListener("change", saveHealthMoodData);
+  document.getElementById("hoursSlept").addEventListener("input", saveHealthMoodData);
+  document.getElementById("meals").addEventListener("input", saveHealthMoodData);
+  document.getElementById("mood").addEventListener("change", saveHealthMoodData);
+
+  // Save today's health data
+  function saveHealthData() {
+    const workout = document.getElementById('workoutCheckbox').checked;
+    const water = document.getElementById('waterCheckbox').checked;
+    const sleep = parseFloat(document.getElementById('sleepHours').value) || 0;
+
+    const today = new Date();
+    const key = `${today.getFullYear()}-${today.getMonth() + 1}`; // e.g., 2025-5
+
+    let data = JSON.parse(localStorage.getItem("healthData")) || {};
+
+    if (!data[key]) {
+      data[key] = {
+        workoutDays: 0,
+        waterDays: 0,
+        totalSleep: 0,
+        daysTracked: 0
+      };
+    }
+
+    if (workout) data[key].workoutDays++;
+    if (water) data[key].waterDays++;
+    if (sleep > 0) data[key].totalSleep += sleep;
+
+    data[key].daysTracked++;
+
+    localStorage.setItem("healthData", JSON.stringify(data));
+    updateMonthlySummary();
+  }
+
+  // Display monthly summary
+  function updateMonthlySummary() {
+    const today = new Date();
+    const key = `${today.getFullYear()}-${today.getMonth() + 1}`;
+    const data = JSON.parse(localStorage.getItem("healthData")) || {};
+
+    if (!data[key]) {
+      document.getElementById("monthlySummary").innerHTML = "📅 No data for this month yet.";
+      return;
+    }
+
+    const entry = data[key];
+    const avgSleep = (entry.totalSleep / entry.daysTracked).toFixed(1);
+
+    document.getElementById("monthlySummary").innerHTML = `
+      <h3>🌙 Monthly Wellness Summary</h3>
+      🏋️‍♂️ Workout Days: ${entry.workoutDays}<br>
+      💧 Hydration Days: ${entry.waterDays}<br>
+      😴 Avg Sleep: ${avgSleep} hrs/day<br>
+      📅 Total Days Tracked: ${entry.daysTracked}
+    `;
+  }
+
+  // Call it on load
+  updateMonthlySummary();
+
+
+
+
+  </script>
+  
+
+</body>
+</html>
